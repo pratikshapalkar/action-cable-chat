@@ -1,0 +1,33 @@
+<div class="main">
+  <h1>Chat Room</h1>
+  <div id="messages"></div>
+  <input type="text" id="message_input" placeholder="Type your message here...">
+  <button id="sendMessageButton">Send</button>
+
+  <div id="messagesContainer">
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var messageInput = document.getElementById("message_input");
+    document.getElementById("sendMessageButton").addEventListener("click", function() {
+      var message = messageInput.value.trim();
+      if (message !== "") {
+        App.chatChannel.speak(message);
+        messageInput.value = "";
+      }
+    });
+  });
+</script>
+
+<style>
+  .main {
+    text-align: center;
+    height: 100vh;
+    background-color: bisque;
+    overflow: auto
+  }
+  h1 {
+    margin: 0;
+  }
+</style>
